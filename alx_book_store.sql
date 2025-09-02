@@ -29,13 +29,13 @@ CREATE TABLE Customers(
 
 CREATE TABLE Orders(
     order_id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_id INT FOREIGN KEY REFERENCES Customers(customer_id),
+    customer_id INT FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
     order_date DATE NOT NULL
 )
 
 CREATE TABLE Order_Details(
     orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT FOREIGN KEY REFERENCES Order(order_id),
-    book_id INT FOREIGN KEY REFERENCES Book(book_id),
+    order_id INT FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    book_id INT FOREIGN KEY (book_id) REFERENCES Books(book_id),
     quantity DOUBLE NOT NULL
 )
