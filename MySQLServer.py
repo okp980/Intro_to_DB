@@ -28,12 +28,7 @@ def create_database():
             create_database_query = "CREATE DATABASE IF NOT EXISTS alx_book_store"
             cursor.execute(create_database_query)
             
-            # Check if database was created (by checking if it exists now)
-            cursor.execute("SELECT DATABASE()")
-            current_db = cursor.fetchone()
-            
-            # Since we can't use SHOW DATABASES, we'll use a different approach
-            # Try to use the database to verify it exists
+            # Verify database exists by trying to use it
             cursor.execute("USE alx_book_store")
             
             print("Database 'alx_book_store' created successfully!")
